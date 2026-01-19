@@ -1,5 +1,6 @@
 <ng-container *ngIf="stdObj.length> 0 else noStd">
-    <table class="table table-bordered" >
+    <div class="table-responsive">
+         <table class="table table-bordered" >
    <thead>
     <tr>
         <th>Sr.no.</th>
@@ -21,6 +22,8 @@
    </tbody>
 </table>
 
+    </div>
+   
 </ng-container>
 <ng-template #noStd>
   <p class="alert alert-info">Please Enter STudents !!</p>
