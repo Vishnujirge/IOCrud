@@ -1,0 +1,27 @@
+<ng-container *ngIf="stdObj.length> 0 else noStd">
+    <table class="table table-bordered" >
+   <thead>
+    <tr>
+        <th>Sr.no.</th>
+        <th>FullName</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th class="text-center" colspan="2">Action</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr  *ngFor="let std of stdObj ; let i= index ;  trackBy : trackByStd">
+        <td>{{i+1}}</td>
+        <td>{{std.fName}} {{std.lName}}</td>
+        <td>{{std.age}}</td>
+        <td>{{std.email}}</td>
+        <td><button mat-mini-fab color="primary" (click)="onEdit(std)"><mat-icon>edit</mat-icon></button></td>
+        <td><button mat-mini-fab color="warn" (click)="onRemove(std)"  ><mat-icon>delete</mat-icon></button></td>
+    </tr>
+   </tbody>
+</table>
+
+</ng-container>
+<ng-template #noStd>
+  <p class="alert alert-info">Please Enter STudents !!</p>
+</ng-template>

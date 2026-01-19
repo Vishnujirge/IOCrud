@@ -1,0 +1,26 @@
+
+
+<div class="card">
+    <div class="card-body">
+         <h2 class="bg-info p-2 ">{{isInEditMode ? ' Updated Post' : ' Add Post'}}</h2>
+        <form #postForm="ngForm" (ngSubmit)="onAddPost()"> 
+            <div class="form-group">
+                <label for="title">Title </label>
+                <input type="text" id="title" name="title" ngModel #title="ngModel" class="form-control" required>
+                <strong class="text-danger" *ngIf="title.touched && title.hasError('required')">Title is required Field!!</strong>
+            </div>
+             <div class="form-group mb-2">
+                <label for="body">Content</label>
+                <input type="text" id="body" name="body" ngModel #body="ngModel" class="form-control" required>
+                <strong class="text-danger" *ngIf="body.touched && body.hasError('required')">Body is required Field!!</strong>
+            </div>
+              <div class="form-group mb-2">
+                <label for="userId">User Id</label>
+                <input type="text" id="userId" name="userId" ngModel #userId="ngModel" class="form-control" required>
+                 <strong class="text-danger" *ngIf="userId.touched && userId.hasError('required')">UserId is required Field!!</strong>
+            </div>
+            <button *ngIf="!isInEditMode" mat-raised-button color="primary" class="w-100"> Add Post</button>
+            <button *ngIf="isInEditMode" mat-raised-button color="primary" type="button" (click)="onUpdate()" class="w-100"> Update Post</button>
+        </form>
+    </div>
+</div>

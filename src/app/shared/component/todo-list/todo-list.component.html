@@ -1,0 +1,9 @@
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todoObj ; trackby:trackById">
+        <strong>{{todo.todoItem | uppercase}}</strong>
+        <div>
+            <button mat-mini-fab color="primary" (click)="onEdit(todo)"  class="mr-3"><mat-icon>edit</mat-icon></button>
+            <button mat-mini-fab (click)="onRemoveTodo(todo)" color="warn"><mat-icon>delete</mat-icon></button>
+        </div>
+    </li>
+</ul>

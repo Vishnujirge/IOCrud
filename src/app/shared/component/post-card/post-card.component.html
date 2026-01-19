@@ -1,0 +1,24 @@
+
+  <ng-container *ngIf="postObj.length> 0 ; else noPost">
+    <div class="row">
+        <div class="col-md-4 mb-2" *ngFor="let post of postObj ; trackBy: trackByPost">
+        <div class="card h-100">
+              <div class="card-header d-flex justify-content-between">
+               <p>{{post.title}}</p>
+               <p class="badge badge-success p-1">{{post.userId}}</p> 
+              </div>
+            <div class="card-body">
+               {{post.body}}
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <button mat-mini-fab color="primary" (click)="onEditPost(post)" ><mat-icon>edit</mat-icon></button>
+                <button mat-mini-fab color="warn"  (click)="onRemove(post)"><mat-icon>delete</mat-icon></button>
+            </div>
+      </div>
+   </div>
+    </div>
+    
+  </ng-container>
+  <ng-template #noPost>
+   <p class="alert alert-info">No Post Here!!</p>
+  </ng-template>

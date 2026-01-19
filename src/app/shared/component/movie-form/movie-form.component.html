@@ -1,0 +1,44 @@
+
+<div class="card">
+    <div class="card-body">
+         <h2 class="bg-primary p-2 ">{{isInEditMode ? ' Updated Movie' : ' Add Movie'}}</h2>
+        <form #movieForm="ngForm" (ngSubmit)="OnAddMovie()"> 
+            <div class="form-group">
+                <label for="title">Movie Name </label>
+                <input type="text" id="title" name="title" ngModel #title="ngModel" class="form-control" required>
+                <strong class="text-danger" *ngIf="title.touched && title.hasError('required')">Please enter Movie Name!!</strong>
+            </div>
+             <div class="form-group mb-2">
+                <label for="director">Director</label>
+                <input type="text" id="director" name="director" ngModel #director="ngModel" class="form-control" required>
+             <strong class="text-danger" *ngIf="director.touched && director.hasError('required')">Please enter Director Name!!</strong>
+
+            </div>
+              <div class="form-group mb-2">
+                <label for="releaseYear">release Year</label>
+                <input type="text" id="releaseYear" name="releaseYear" ngModel #releaseYear="ngModel" class="form-control" required>
+                 <strong class="text-danger" *ngIf="releaseYear.touched && releaseYear.hasError('required')">Please enter ReleaseYear!!</strong>
+            </div>
+              <div class="form-group mb-2">
+                <label for="rating">Rating</label>
+                <input type="text" id="rating" name="rating" ngModel #rating="ngModel" class="form-control" required>
+              <strong class="text-danger" *ngIf="rating.touched && rating.hasError('required')">Please enter Rating!!</strong>
+
+            </div>
+             <div class="form-group mb-2">
+                <label for="imageUrl"> ImageUrl</label>
+              
+            <input class="form-control mb-2"
+                ngModel
+                name="imageUrl"
+                #imageUrl="ngModel"
+                required
+                placeholder="Image URL">
+         <strong class="text-danger" *ngIf="imageUrl.touched && imageUrl.hasError('required')">Please enter imageUrl!!</strong>
+
+            </div>
+            <button *ngIf="!isInEditMode" mat-raised-button color="primary" class="w-100"> Add Post</button>
+            <button *ngIf="isInEditMode" mat-raised-button color="primary"(click)="onUpdate()"  type="button" class="w-100"> Update Post</button>
+        </form>
+    </div>
+</div>

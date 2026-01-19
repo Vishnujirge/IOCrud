@@ -1,0 +1,30 @@
+
+
+<div class="row">
+  <div class="col-md-4 mb-2" *ngFor="let movie of movieObj">
+  <div class="card mb-5">
+    <div class="card-header">
+               <mat-card-title>{{movie.title}}</mat-card-title>
+    </div>
+     <div class="card-body p-0">
+        <div class="img-container">
+             <img mat-card-image class="imgUrl img-fluid" src="{{movie.imageUrl}}" alt="{{movie.title}}">
+             <div class="overlay">
+               <h2>{{movie.title}}</h2>
+               <div class="d-flex justify-content-between">
+                  <p>ReleaseYear : {{movie.releaseYear}}</p>
+                  <p> Director  : {{movie.director}}</p>
+               </div>
+               <p>Rating : {{movie.rating}}</p>
+
+             </div>
+        </div>
+    
+     </div>
+     <div class=" card-footer d-flex justify-content-between">
+            <button mat-mini-fab color="primary"  (click)="onEditMovie(movie)"><mat-icon>edit</mat-icon></button>
+            <button mat-mini-fab color="warn" (click)="onRemove(movie)"><mat-icon>delete</mat-icon></button>
+    </div>
+</div>
+</div>
+</div>
